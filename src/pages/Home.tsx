@@ -40,9 +40,10 @@ export default function Home() {
   return (
     <main>
       <Hero/>
+      <AboutSection/>
       <ServicesSection/>
       <ServicesCategory/>
-      {/* <AboutSection/> */}
+     
       {/* <Features/> */}
       <HowItWorks/>
       <TrustSafety/>

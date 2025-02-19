@@ -24,7 +24,7 @@ const ServicesCategory = () => {
       reviews: 856,
       priceRange: "$$",
       availability: "Today",
-      image: "/api/placeholder/120/120"
+      image: "https://randomuser.me/api/portraits/women/85.jpg"
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const ServicesCategory = () => {
       reviews: 654,
       priceRange: "$$$",
       availability: "Within 2 hours",
-      image: "/api/placeholder/120/120"
+      image: "https://randomuser.me/api/portraits/men/87.jpg"
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const ServicesCategory = () => {
       reviews: 432,
       priceRange: "$$",
       availability: "Tomorrow",
-      image: "/api/placeholder/120/120"
+      image: "https://randomuser.me/api/portraits/men/40.jpg"
     }
   ];
 

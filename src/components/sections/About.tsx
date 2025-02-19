@@ -1,118 +1,117 @@
-import React, { useState, useEffect } from 'react';
-import { Brain, Trophy, Users, Globe, Briefcase, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { Award, Users, Globe, Heart, Target, Shield } from 'lucide-react';
 
 const AboutSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('about-section');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const stats = [
-    { icon: <Users className="w-6 h-6" />, value: "1M+", label: "Active Users" },
-    { icon: <Briefcase className="w-6 h-6" />, value: "500+", label: "Partner Companies" },
-    { icon: <Brain className="w-6 h-6" />, value: "95%", label: "Career Success Rate" },
-    { icon: <Globe className="w-6 h-6" />, value: "40+", label: "Countries Served" }
+    { number: "20,000+", label: "Service Providers", icon: Users },
+    { number: "$100M+", label: "Services Processed", icon: Globe },
+    { number: "4.8/5", label: "Customer Satisfaction", icon: Heart },
   ];
 
-  const team = [
+  const values = [
     {
-      name: "Dr. Amanda Chen",
-      role: "Chief Executive Officer",
-      image: "/images/man.jpg",
-      bio: "Former Career Development Director at LinkedIn, PhD in Organizational Psychology"
+      icon: Shield,
+      title: "Trust & Reliability",
+      description: "We verify every provider and guarantee customer satisfaction on every service."
     },
     {
-      name: "David Martinez",
-      role: "Chief Technology Officer",
-      image: "/images/man.jpg",
-      bio: "Pioneer in AI-driven career mapping, Ex-Google AI Lead"
+      icon: Target,
+      title: "Quality First",
+      description: "Maintaining the highest standards in home services through rigorous quality control."
     },
     {
-      name: "Dr. Rachel Thompson",
-      role: "Head of Learning Innovation",
-      image: "/images/man.jpg",
-      bio: "EdTech innovator with 15+ years in adaptive learning systems"
-    },
-    {
-      name: "Marcus Williams",
-      role: "Director of Career Success",
-      image: "/images/man.jpg",
-      bio: "Certified Career Coach with 10,000+ successful placements"
+      icon: Award,
+      title: "Customer-Centric",
+      description: "Everything we do is focused on providing the best experience for our customers."
     }
   ];
 
   return (
-    <div id="about" className="bg-white py-24">
-      <div className="container mx-auto px-6">
-        {/* Mission Statement */}
-        <div className={`text-center max-w-3xl mx-auto mb-20 transform transition-all duration-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-        }`}>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Transforming Careers Through AI Innovation
-          </h2>
-          <p className="text-xl text-gray-600">
-            CareerPath AI is revolutionizing professional development by combining cutting-edge artificial intelligence 
-            with deep career expertise. Our mission is to empower individuals to reach their full potential through 
-            personalized career guidance and continuous learning.
-          </p>
+    <div className="bg-white py-20" id='about'>
+      <div className="container mx-auto px-4">
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Left Column - Image */}
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="/images/team.jpg" 
+                alt="Team at work"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Floating Achievement Card */}
+            <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+                  <Award className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">Industry Leader</div>
+                  <div className="text-sm text-gray-600">Top-rated home services platform</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Text Content */}
+          <div className="space-y-6">
+            <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
+              <span className="text-blue-600 font-medium">About Us</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900">
+              Transforming Home Services Since 2020
+            </h2>
+            <p className="text-xl text-gray-600">
+              HomeServices Hub was founded with a simple mission: to make quality home services accessible to everyone. We've grown from a small startup to the nation's leading home services platform.
+            </p>
+            <p className="text-gray-600">
+              Our platform connects homeowners with verified, skilled professionals for all their home service needs. We've built a community of trust, where quality work meets peace of mind.
+            </p>
+            
+            {/* Mission Statement */}
+            <div className="bg-gray-50 rounded-xl p-6 mt-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Mission</h3>
+              <p className="text-gray-600">
+                To revolutionize the home services industry by creating seamless connections between homeowners and qualified professionals, ensuring quality, trust, and satisfaction in every service.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className={`grid md:grid-cols-4 gap-8 mb-20 transform transition-all duration-1000 delay-300 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-        }`}>
+        {/* Stats Section */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
-              <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-indigo-600">
-                {stat.icon}
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
-              <p className="text-gray-600">{stat.label}</p>
+            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center">
+              <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+              <div className="text-gray-600">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Team */}
-        <div className={`transform transition-all duration-1000 delay-500 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-        }`}>
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Meet Our Leadership
-          </h3>
-          <div className="grid md:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="group">
-                <div className="relative overflow-hidden rounded-xl mb-4">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-72 object-cover transform group-hover:scale-105 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
-                    <p className="text-white">{member.bio}</p>
-                  </div>
-                </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h4>
-                <p className="text-gray-600">{member.role}</p>
+        {/* Company Values */}
+        <div className="text-center mb-12">
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h3>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            These core values guide everything we do at HomeServices Hub
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {values.map((value, index) => (
+            <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                <value.icon className="w-6 h-6 text-blue-600" />
               </div>
-            ))}
-          </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                {value.title}
+              </h4>
+              <p className="text-gray-600">
+                {value.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
