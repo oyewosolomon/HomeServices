@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Plus, Minus, Search } from 'lucide-react';
 
-const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
+interface FAQ {
+  q: string;
+  a: string;
+}
 
-  const faqs = [
+interface FAQCategory {
+  category: string;
+  questions: FAQ[];
+}
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const faqs: FAQCategory[] = [
     {
       category: "Booking & Scheduling",
       questions: [
@@ -47,7 +57,7 @@ const FAQSection = () => {
     }
   ];
 
-  const handleToggle = (index:Number) => {
+  const handleToggle = (index: string) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -101,6 +111,8 @@ const FAQSection = () => {
                       <button
                         className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
                         onClick={() => handleToggle(uniqueIndex)}
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-${uniqueIndex}`}
                       >
                         <span className="text-lg font-medium text-gray-900">{faq.q}</span>
                         {isOpen ? (
@@ -110,6 +122,7 @@ const FAQSection = () => {
                         )}
                       </button>
                       <div
+                        id={`faq-${uniqueIndex}`}
                         className={`overflow-hidden transition-all duration-300 ${
                           isOpen ? 'max-h-96' : 'max-h-0'
                         }`}

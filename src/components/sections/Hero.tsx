@@ -63,7 +63,7 @@ const Hero = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/api/placeholder/600/400" 
+                src="/images/dash.jpg" 
                 alt="Happy family with service provider"
                 className="w-full h-full object-cover"
               />

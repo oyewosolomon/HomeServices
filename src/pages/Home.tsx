@@ -47,6 +47,7 @@ export default function Home() {
       <HowItWorks/>
       <TrustSafety/>
       <Partners/>
+      <FAQSection/>
 
       {/* <PricingSection/> */}
       <Testimonials/>

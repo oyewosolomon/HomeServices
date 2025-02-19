@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-blue-600">HomeServices Hub</span>
+            <span className="text-2xl font-bold text-blue-600">HomeServices</span>
           </div>
 
           {/* Desktop Navigation */}
