@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Search, Sliders, Star, Clock, DollarSign, MapPin } from 'lucide-react';
 
@@ -49,6 +47,11 @@ const ServicesCategory = () => {
       image: "/api/placeholder/120/120"
     }
   ];
+
+  // Filter services based on selected category
+  const filteredServices = selectedCategory === 'all'
+    ? services
+    : services.filter(service => service.category === selectedCategory);
 
   return (
     <div className="bg-gray-50 py-20">
@@ -141,7 +144,7 @@ const ServicesCategory = () => {
           {/* Service Listings */}
           <div className="lg:col-span-3">
             <div className="grid md:grid-cols-2 gap-6">
-              {services.map((service) => (
+              {filteredServices.map((service) => (
                 <div
                   key={service.id}
                   className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"

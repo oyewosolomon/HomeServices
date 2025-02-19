@@ -5,7 +5,7 @@ import { Calendar, Clock, Mail, MessageSquare, Phone, MapPin } from 'lucide-reac
 interface FormData {
   name: string;
   email: string;
-  company: string;
+  serviceType: string;
   message: string;
   preferredDate: string;
   preferredTime: string;
@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    company: '',
+    serviceType: '',
     message: '',
     preferredDate: '',
     preferredTime: ''
@@ -36,10 +36,10 @@ const Contact: React.FC = () => {
           {/* Left side - Contact Info */}
           <div>
             <h2 className="text-3xl font-bold text-gray-900">
-              Ready to Transform Your Career?
+              Need Help with Home Services?
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Schedule a personalized demo to see how CareerPath AI can accelerate your professional growth.
+              Contact us to connect with over 20,000 verified service providers. We're here to help you with all your home service needs.
             </p>
 
             <div className="mt-8 space-y-6">
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                 <Mail className="w-6 h-6 text-indigo-600 mr-4" />
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Email</h3>
-                  <p className="mt-1 text-gray-600">demo@careerpathai.com</p>
+                  <p className="mt-1 text-gray-600">support@homeservicehub.com</p>
                 </div>
               </div>
 
@@ -63,25 +63,25 @@ const Contact: React.FC = () => {
                 <MapPin className="w-6 h-6 text-indigo-600 mr-4" />
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Office</h3>
-                  <p className="mt-1 text-gray-600">123 Innovation Drive<br />San Francisco, CA 94105</p>
+                  <p className="mt-1 text-gray-600">123 Service Lane<br />San Francisco, CA 94105</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12 p-6 bg-indigo-50 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900">What to Expect</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Why Choose Us?</h3>
               <ul className="mt-4 space-y-3">
                 <li className="flex items-start">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm mt-0.5">1</div>
-                  <p className="ml-3 text-gray-600">Personalized platform walkthrough</p>
+                  <p className="ml-3 text-gray-600">Access to 20,000+ verified providers</p>
                 </li>
                 <li className="flex items-start">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm mt-0.5">2</div>
-                  <p className="ml-3 text-gray-600">Q&A session with our career experts</p>
+                  <p className="ml-3 text-gray-600">$100M+ in services processed annually</p>
                 </li>
                 <li className="flex items-start">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm mt-0.5">3</div>
-                  <p className="ml-3 text-gray-600">Custom implementation plan</p>
+                  <p className="ml-3 text-gray-600">4.8/5 customer satisfaction rating</p>
                 </li>
               </ul>
             </div>
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
 
           {/* Right side - Contact Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Schedule Your Demo</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Contact Us</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
@@ -119,16 +119,23 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700">
-                  Company
+                <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700">
+                  Service Type
                 </label>
-                <input
-                  type="text"
-                  id="company"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                <select
+                  id="serviceType"
+                  value={formData.serviceType}
+                  onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
+                >
+                  <option value="">Select a service</option>
+                  <option value="cleaning">Cleaning</option>
+                  <option value="plumbing">Plumbing</option>
+                  <option value="electrical">Electrical</option>
+                  <option value="handyman">Handyman Services</option>
+                  <option value="landscaping">Landscaping</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -182,7 +189,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition-colors duration-200"
               >
-                Schedule Demo
+                Submit
               </button>
             </form>
           </div>
