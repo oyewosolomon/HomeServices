@@ -44,15 +44,10 @@ export default function Home() {
       <ServicesSection/>
       <ServicesCategory/>
      
-      {/* <Features/> */}
       <HowItWorks/>
       <TrustSafety/>
       <Partners/>
       <FAQSection/>
-
-      {/* <PricingSection/> */}
-      <Testimonials/>
-
 
       <Contact/>
       <Footer/>

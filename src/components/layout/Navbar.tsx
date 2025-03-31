@@ -19,8 +19,8 @@ const Navbar = () => {
     <header className="bg-white shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex gap-3">
+          <svg width="30px" height="30px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 1H11V3H9V4.07089C12.3923 4.55612 15 7.47353 15 11H1C1 7.47353 3.60771 4.55612 7 4.07089V3H5V1Z" fill="#2563eb"></path> <path d="M15 15V13H1V15H15Z" fill="#2563eb"></path> </g></svg>
             <span className="text-2xl font-bold text-blue-600">HomeServices</span>
           </div>
 
