@@ -59,23 +59,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="w-5 h-5 text-blue-500 mr-3 mt-1" />
-                <span className="text-gray-400">
-                  123 Business Street<br />
-                  New York, NY 10001
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="w-5 h-5 text-blue-500 mr-3" />
-                <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors">
-                  (123) 456-7890
-                </a>
-              </li>
+              
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-blue-500 mr-3" />
                 <a href="mailto:contact@homeserviceshub.com" className="text-gray-400 hover:text-white transition-colors">
-                  contact@homeserviceshub.com
+                  contact@homeservicesng.com
                 </a>
               </li>
             </ul>
